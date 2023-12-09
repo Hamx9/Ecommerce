@@ -15,8 +15,9 @@ class Item(models.Model):
     def get_absolute_url(self):
         return reverse("core:product", kwargs={"slug": self.slug})
     
-    def get_add_to_cart(self):
-        return reverse("core:product", kwargs={"slug": self.slug})
+    def get_add_to_cart_url(self):
+        print('enter in add to cart')
+        return reverse("core:add-to-cart", kwargs={"slug": self.slug})
     
 
 
@@ -30,7 +31,7 @@ class Order(models.Model):
     items= models.ManyToManyField(OrderItem)
     start_date= models.DateTimeField(auto_now_add=True)
     ordered_date=models.DateTimeField()
-    Ordered =  models.BooleanField(default=False)
+    ordered =  models.BooleanField(default=False)
 
     def __str__(self):
         return self.user.username

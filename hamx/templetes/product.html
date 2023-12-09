@@ -54,7 +54,7 @@
 
           <!-- Product Color -->
           <div class="product-color">
-            <span>Color</span>
+            <!-- <span>Color</span> -->
 <!-- 
             <div class="color-choose">
               <div>
@@ -89,8 +89,8 @@
 
         <!-- Product Pricing -->
         <div class="product-price">
-          <span>148$</span>
-          <a href="#" class="cart-btn">Add to cart</a>
+          <span>{{object.price}}$</span>
+          <a href="{{object.get_add_to_cart_url}}" class="cart-btn">Add to cart</a>
         </div>
       </div>
     </main>
