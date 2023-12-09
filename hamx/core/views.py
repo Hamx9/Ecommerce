@@ -6,3 +6,4 @@ def item_list(request):
         'items':Item.objects.all() 
     }
     return render(request,"item_list.html",context)
+    
