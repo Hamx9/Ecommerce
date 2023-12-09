@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'core'
 ]
 
 MIDDLEWARE = [
@@ -60,7 +61,7 @@ ROOT_URLCONF = 'hamx.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR,'templetes'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
