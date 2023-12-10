@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tutorial</title>
-    <!-- Fonts -->
+   
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-    <!-- CSS -->
+   
     <link href="/static/style.css" rel="stylesheet">
     <meta name="robots" content="noindex,follow" />
 <style>
@@ -18,24 +18,59 @@
     border-radius: 7%;
     transition: all 0.3s ease;
   }
+
+ 
+.alert {
+  padding: 20px;
+  background-color: #f44336; 
+  color: white;
+  margin-bottom: 15px;
+}
+
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+
+.closebtn:hover {
+  color: black;
+}
 </style>
  
   </head>
 
-  <body>
+  <body> -->
 
+    {% extends 'base.html' %}
+
+    {% block content %} 
+    
+    <div class="alert">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+      
     {% if messages %}
-    <ul class="messages">
+    <ul class="messages">s
         {% for message in messages %}
         <li {% if message.tags %} class="{{ message.tags }}"{% endif %}> <h1> {{ message }} </h1></li>
         {% endfor %}
     </ul>
     {% endif %}
+    </div>
 
-    <main class="container">
+
+
+    <main class="containerxx">
      
       <!-- Left Column / Headphones Image -->
-      <div class="left-column">
+      <div class="left-columnxx">
         <img  style="width: 54%;
         position: absolute;
         left: 173px;
@@ -49,20 +84,20 @@
 
 
       <!-- Right Column -->
-      <div class="right-column">
+      <div class="right-columnxx">
 
         <!-- Product Description -->
-        <div class="product-description">
+        <div class="product-descriptionxx">
           <span>Headphones</span>
           <h1>{{object.title}}</h1>
           <p>{{object.desc}}</p>
         </div>
 
         <!-- Product Configuration -->
-        <div class="product-configuration">
+        <div class="product-configurationxx">
 
           <!-- Product Color -->
-          <div class="product-color">
+          <div class="product-colorxx">
             <!-- <span>Color</span> -->
 <!-- 
             <div class="color-choose">
@@ -83,10 +118,10 @@
           </div>
 
           <!-- Cable Configuration -->
-          <div class="cable-config">
+          <div class="cable-configxx">
             <span>Cable configuration</span>
 
-            <div class="cable-choose">
+            <div class="cable-choosexx">
               <button>Straight</button>
               <button>Coiled</button>s
               <button>Long-coiled</button>
@@ -97,16 +132,20 @@
         </div>
 
         <!-- Product Pricing -->
-        <div class="product-price">
+        <div class="product-pricexx">
           <span>{{object.price}}$</span>
-          <a href="{{object.get_add_to_cart_url}}" class="cart-btn">Add to cart</a>
-          <a href="{{object.get_remove_from_cart_url}}" class="cart-btn">removve from cart</a>
+          <a href="{{object.get_add_to_cart_url}}" class="cart-btnxx">Add to cart</a>
+          <a href="{{object.get_remove_from_cart_url}}" class="cart-btnxx">removve from cart</a>
         </div>
       </div>
     </main>
 
     <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
     <!-- <script src="/static/script.js" charset="utf-8"></script> -->
-  </body>
-</html>
+  
+  
+  
+{% endblock content %}
+  
+  <!-- </body>
+</html> -->
