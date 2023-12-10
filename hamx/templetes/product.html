@@ -23,8 +23,17 @@
   </head>
 
   <body>
-    <main class="container">
 
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}> <h1> {{ message }} </h1></li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <main class="container">
+     
       <!-- Left Column / Headphones Image -->
       <div class="left-column">
         <img  style="width: 54%;
