@@ -222,6 +222,12 @@
                           </svg>
                         </a>
                       </li>
+                      <li class="pe-3" style="padding-left: 10px;">
+                        <a href="{% url 'account_logout' %}">
+                         
+                          log out
+                        </a>
+                      </li>
                       {% else %}
                       <li class="pe-3">
                         <a href="{% url 'account_login' %}">
@@ -231,7 +237,12 @@
                           login
                         </a>
                       </li>
-
+                      <li class="pe-3">
+                        <a href="{% url 'account_signup' %}">
+                          
+                          sign up
+                        </a>
+                      </li>
                       {% endif %}
 
                     </ul>
