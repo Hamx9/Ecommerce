@@ -211,13 +211,10 @@
                           </svg>
                         </a>
                       </li>
-                      <li class="pe-3">
-                        <a href="#">
-                          <svg class="user">
-                            <use xlink:href="#user"></use>
-                          </svg>
-                        </a>
-                      </li>
+
+
+
+                      {% if request.user.is_authenticated %}
                       <li>
                         <a href="cart.html">
                           <svg class="cart">
@@ -225,6 +222,18 @@
                           </svg>
                         </a>
                       </li>
+                      {% else %}
+                      <li class="pe-3">
+                        <a href="{% url 'account_login' %}">
+                          <!-- <svg class="user">
+                            <use xlink:href="#user">login</use>
+                          </svg> -->
+                          login
+                        </a>
+                      </li>
+
+                      {% endif %}
+
                     </ul>
                   </div>
                 </li>
