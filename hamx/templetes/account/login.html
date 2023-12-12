@@ -2,35 +2,43 @@
 {% load i18n %}
 {% load allauth account socialaccount %}
 {% block head_title %}
-    {% trans "Sign In" %}
+{% trans "Sign In" %}
 {% endblock head_title %}
-
 {% block content %}
-    <h1 style="text-align: center; margin-bottom: 20px;">
-        {% trans "Sign In" %}
-    </h1>
-    
-    <p style="text-align: center;">
-        {% blocktrans %}If you have not created an account yet, then please
-        <a href="{{ signup_url }}" style="color: blue;">sign up</a> first.{% endblocktrans %}
-    </p>
+{% element h1 %}
+{% trans "Sign In" %}
+{% endelement %}
 
+<div style="width: fit-content;" class="align-items-center justify-content-center">
+
+    <p>
+        {% blocktrans %}If you have not created an account yet, then please
+        <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
+    </p>
     {% url 'account_login' as login_url %}
-    <form style="max-width: 400px; margin: 0 auto;" method="post" action=login_url>
-        {% csrf_token %}
-    
-        {% element fields form=form unlabeled=True %}
-        
-        {% if redirect_field_value %}
-            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-        {% endif %}
-        
-        <div style="text-align: center; margin-top: 20px;">
-            <button type="submit" style="padding: 10psx 20px; background-color: #007bff; color: #fff; border: none;">
-                {% trans "Sign In" %}
-            </button>
-        </div>
-    </form>
+    {% element form form=form method="post" action=login_url tags="entrance,login" %}
+    {% slot body %}
+    {% csrf_token %}
+    {% element fields form=form unlabeled=True %}
     {% endelement %}
-    {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
+    {% if redirect_field_value %}
+    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+    {% endif %}
+    {% endslot %}
+    {% slot actions %}
+
+    <button type="submit" style="width: 400px;" class="prominent login   btn btn-primary btn-block mb-4 ">
+        Sign In
+    </button>
+
+
+
+    <!-- {% element button type="submit"  tags="prominent,login" %}
+                {% trans "Sign In" %}
+            {% endelement %}
+        -->
+    {% endslot %}
+    {% endelement %}
+</div>
+{% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
 {% endblock content %}
