@@ -32,15 +32,12 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    # 'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.auth',
-    # 'django.contrib.messages',
     'allauth',
-    # 'crispy_forms'
     'allauth.account',
     'allauth.socialaccount',
     'core'
@@ -150,5 +147,5 @@ AUTHENTICATION_BACKENDS = [
 STATIC_URL = 'static/'
 
 
-#crisopy forms
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+# #crisopy forms
+# CRISPY_TEMPLATE_PACK = 'bootstrap4'

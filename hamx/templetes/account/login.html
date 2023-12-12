@@ -1,7 +1,6 @@
 {% extends "account/base_entrance.html" %}
 {% load i18n %}
 {% load allauth account socialaccount %}
-<!-- {% load crispy_forms_tags %} -->
 {% block head_title %}
     {% trans "Sign In" %}
 {% endblock head_title %}
@@ -19,7 +18,7 @@
     {% url 'account_login' as login_url %}
     <form style="max-width: 400px; margin: 0 auto;" method="post" action=login_url>
         {% csrf_token %}
-        <!-- {{ form|crispy}} -->
+    
         {% element fields form=form unlabeled=True %}
         
         {% if redirect_field_value %}
