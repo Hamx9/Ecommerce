@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     # 'django.contrib.messages',
     'allauth',
+    # 'crispy_forms'
     'allauth.account',
     'allauth.socialaccount',
     'core'
@@ -147,3 +148,7 @@ AUTHENTICATION_BACKENDS = [
 
 # SITE_ID = 1
 STATIC_URL = 'static/'
+
+
+#crisopy forms
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

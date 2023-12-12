@@ -1,34 +1,37 @@
 {% extends "account/base_entrance.html" %}
 {% load i18n %}
 {% load allauth account socialaccount %}
+<!-- {% load crispy_forms_tags %} -->
 {% block head_title %}
     {% trans "Sign In" %}
 {% endblock head_title %}
+
 {% block content %}
-    {% element h1 %}
+    <h1 style="text-align: center; margin-bottom: 20px;">
         {% trans "Sign In" %}
-    {% endelement %}
-    <p>
+    </h1>
+    
+    <p style="text-align: center;">
         {% blocktrans %}If you have not created an account yet, then please
-    <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
+        <a href="{{ signup_url }}" style="color: blue;">sign up</a> first.{% endblocktrans %}
     </p>
+
     {% url 'account_login' as login_url %}
-    {% element form form=form method="post" action=login_url tags="entrance,login" %}
-        {% slot body %}
-            {% csrf_token %}
-            {% element fields form=form unlabeled=True %}
-            {% endelement %}
-            {% if redirect_field_value %}
-                <input type="hidden"
-                       name="{{ redirect_field_name }}"
-                       value="{{ redirect_field_value }}" />
-            {% endif %}
-        {% endslot %}
-        {% slot actions %}
-            {% element button type="submit" tags="prominent,login" %}
+    <form style="max-width: 400px; margin: 0 auto;" method="post" action=login_url>
+        {% csrf_token %}
+        <!-- {{ form|crispy}} -->
+        {% element fields form=form unlabeled=True %}
+        
+        {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+        
+        <div style="text-align: center; margin-top: 20px;">
+            <button type="submit" style="padding: 10psx 20px; background-color: #007bff; color: #fff; border: none;">
                 {% trans "Sign In" %}
-            {% endelement %}
-        {% endslot %}
+            </button>
+        </div>
+    </form>
     {% endelement %}
     {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
 {% endblock content %}
