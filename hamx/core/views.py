@@ -3,6 +3,7 @@ from .models import Item, Order,OrderItem
 from django.utils import timezone
 from django.views.generic import ListView, DetailView,View
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin 
 # Create your views here.
 # def item_list(request):
 #     context = {
@@ -19,7 +20,7 @@ class  HomeView (ListView):
 
 
 
-class OrderSummeryView(View):
+class OrderSummeryView(LoginRequiredMixin,View):
    def get(self,*args, **kwargs):
         try:
             order = Order.objects.get(user=self.request.user,ordered=False)
