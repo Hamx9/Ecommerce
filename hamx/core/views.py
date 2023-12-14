@@ -17,10 +17,20 @@ class  HomeView (ListView):
     template_name = "home.html"
 
 
+
+
 class OrderSummeryView(View):
    def get(self,*args, **kwargs):
-        return render(self.request,"order_summery.html")
-    
+        try:
+            order = Order.objects.get(user=self.request.user,ordered=False)
+            context = {
+                'object':order
+            }
+            return render(self.request,"order_summery.html",context)
+        except :
+            messages.error(self.request,"you do not have active order")
+            return redirect("/")
+
 
 
 
