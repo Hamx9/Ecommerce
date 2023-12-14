@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from .models import Item, Order,OrderItem
 from django.utils import timezone
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView,View
 from django.contrib import messages
 # Create your views here.
 # def item_list(request):
@@ -15,6 +15,13 @@ from django.contrib import messages
 class  HomeView (ListView):
     model = Item
     template_name = "home.html"
+
+
+class OrderSummeryView(View):
+   def get(self,*args, **kwargs):
+        return render(self.request,"order_summery.html")
+    
+
 
 
 class  ItemDetailView (DetailView):

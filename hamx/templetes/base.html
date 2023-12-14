@@ -134,6 +134,7 @@
         </div>
     </div>
     
+
     <header id="header" class="site-header header-scrolled position-fixed text-black bg-light">
       <nav id="header-nav" class="navbar navbar-expand-lg px-3 mb-3">
         <div class="container-fluid">
@@ -254,6 +255,38 @@
         </div>
       </nav>
     </header>
+    
+    <!-- <div class="toast active">
+  
+      <div class="toast-content">
+        <i class="fas fa-solid fa-check check"></i>
+    
+        <div class="message">
+          <span class="text text-1">Success</span>
+          <span class="text text-2">Your changes has been saved</span>
+        </div>
+      </div>
+      <i class="fa-solid fa-xmark close"></i>
+    
+       
+      <div class="progress active"></div>
+    </div>
+    
+  -->
+<!-- 
+   <div class="alert" style="padding-top: 100px;     padding-bottom: 0;">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    
+  {% if messages %}
+  <ul class="messages">
+      {% for message in messages %}
+      <div {% if message.tags %} class="{{ message.tags }}"{% endif %}> <h5> {{ message }} </h5></div>
+      {% endfor %}
+  </ul>
+  {% endif %}
+  </div>
+ -->
+
     {% block content %}
 
 
@@ -405,6 +438,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
       <script src="/static/script.js" charset="utf-8"></script>
       <script type="text/javascript" src="/static/js/script.js"></script>
+      
     </body>
   </html>
   

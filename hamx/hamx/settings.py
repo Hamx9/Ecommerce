@@ -145,7 +145,7 @@ AUTHENTICATION_BACKENDS = [
 
 # SITE_ID = 1
 STATIC_URL = 'static/'
-
+LOGIN_REDIRECT_URL= '/'
 
 # #crisopy forms
-# CRISPY_TEMPLATE_PACK = 'bootstrap4'
+# CRISPY_TEMPLATE_PACK = 'bootstrap4'cd 
