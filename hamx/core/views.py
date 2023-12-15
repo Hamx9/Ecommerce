@@ -19,7 +19,7 @@ class  HomeView (ListView):
 
 
 
-
+#summery view
 class OrderSummeryView(LoginRequiredMixin,View):
    def get(self,*args, **kwargs):
         try:
