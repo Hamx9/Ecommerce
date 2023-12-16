@@ -30,7 +30,7 @@ class OrderItem(models.Model):
     ordered =  models.BooleanField(default=False)
     quantity = models.IntegerField(default=1)
     def get_total_price(self):
-        return 
+        return self.quantity * self.item.price
     
 
 
