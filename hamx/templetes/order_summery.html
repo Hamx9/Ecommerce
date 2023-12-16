@@ -213,12 +213,12 @@ code{
         <h1>order summery</h1>
 		<section id="cart"> 
 
-            {% for obj in object %}
+            {% for obj in object.items.all %}
 
 			<article class="product">
 				<header>
 					<a class="remove">
-						<img src="./img/mouse.jpg" alt="Gamming Mouse">
+						<img src="/static/images/product-item1.jpg" alt="Gamming Mouse">
 
 						<h3>Remove product</h3>
 					</a>
@@ -228,7 +228,7 @@ code{
 
 					<h1>{{obj.item.title}}</h1>
 
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, numquam quis perspiciatis ea ad omnis provident laborum dolore in atque.
+					<h5>{{obj.item.desc}}</h5>
 
 					<!-- <div title="You have selected this product to be shipped in the color yellow." style="top: 0" class="color yellow"></div> -->
 					<!-- <div style="top: 43px" class="type small">XXL</div> -->
@@ -236,15 +236,15 @@ code{
 
 				<footer class="content">
 					<!-- <span class="qt-minus">-</span> -->
-					<span class="qt">2</span>
+					<span class="qt">{{obj.quantity}}</span>
 					<!-- <span class="qt-plus">+</span> -->
 
 					<h2 class="full-price">
-						29.98€
+						{{obj.item.price * obj.quantity}}
 					</h2>
 
 					<h2 class="price">
-						14.99€
+						{{obj.item.price}}
 					</h2>
 				</footer>
 			</article>

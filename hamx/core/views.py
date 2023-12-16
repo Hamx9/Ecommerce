@@ -3,6 +3,7 @@ from .models import Item, Order,OrderItem
 from django.utils import timezone
 from django.views.generic import ListView, DetailView,View
 from django.contrib import messages
+from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.mixins import LoginRequiredMixin 
 # Create your views here.
 # def item_list(request):
@@ -24,11 +25,13 @@ class OrderSummeryView(LoginRequiredMixin,View):
    def get(self,*args, **kwargs):
         try:
             order = Order.objects.get(user=self.request.user,ordered=False)
+            print(order.items)
             context = {
                 'object':order
             }
             return render(self.request,"order_summery.html",context)
-        except :
+        except ObjectDoesNotExist:
+            print("enter in except")
             messages.error(self.request,"you do not have active order")
             return redirect("/")
 
