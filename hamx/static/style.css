@@ -225,7 +225,7 @@
 
 /* aleart */
 
-
+/* 
 .toast {
   position: absolute;
   top: 25px;
@@ -337,4 +337,4 @@ button:hover {
 
 .toast.active ~ button {
   pointer-events: none;
-}
+} */
