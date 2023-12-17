@@ -20,7 +20,14 @@
     <!-- script
     ================================================== -->
     <script src="/static/js/modernizr.js"></script>
-
+<style>
+  .site-header {
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    transition: background 0.3s ease-out;
+}
+</style>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
    <link rel="stylesheet" href="/static/homestyle.css">
 
@@ -135,7 +142,7 @@
     </div>
     
 
-    <header id="header" class="site-header header-scrolled position-fixed text-black bg-light">
+    <header id="header" class="site-header header-scrolled position-fixed text-black bg-light" style="z-index: 100;">
       <nav id="header-nav" class="navbar navbar-expand-lg px-3 mb-3">
         <div class="container-fluid">
           <a class="navbar-brand" href="index.html">
@@ -186,7 +193,7 @@
                       <a href="shop.html" class="dropdown-item">Shop</a>
                     </li>
                     <li>
-                      <a href="cart.html" class="dropdown-item">Cart</a>
+                      <a href="{% url 'core:order-summery' %}" class="dropdown-item">Cart</a>
                     </li>
                     <li>
                       <a href="checkout.html" class="dropdown-item">Checkout</a>
@@ -217,7 +224,7 @@
 
                       {% if request.user.is_authenticated %}
                       <li>
-                        <a href="cart.html">
+                        <a href="{% url 'core:order-summery' %}">
                           <svg class="cart">
                             <use xlink:href="#cart"></use>
                           </svg>

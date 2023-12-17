@@ -588,7 +588,7 @@ h3.cart-title {
 .site-header {
     position: fixed;
     width: 100%;
-    z-index: 0;
+    z-index: 10;
     transition: background 0.3s ease-out;
 }
 .navbar-toggler svg.navbar-icon {
