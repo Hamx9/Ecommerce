@@ -1,0 +1,4 @@
+Django==3.2.8
+django-bootstrap4==3.0.1
+Pillow==8.4.0
+django-allauth==0.47.0
