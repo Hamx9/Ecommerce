@@ -2,12 +2,12 @@
 # E-commerce Project Readme
 
 ## Overview
-This project is an e-commerce platform that is currently under construction. It is built using Python Django and includes functionalities such as add to cart, remove from cart, authentication, sign in, sign up, and many more. The project is continuously being upgraded to enhance its features and performance.
+This project is an e-commerce platform that is currently under construction XD. It is built using Python Django and includes functionalities such as add to cart, remove from cart, authentication, sign in, sign up, and many more. The project is continuously being upgraded to enhance its features and performance.
 
 ## Installation
 1. Clone the repository
    ```
-   git clone https://github.com/yourusername/ecommerce-project.git
+   git clone https://github.com/hammadu696/Django-auth.git
    ```
 2. Install the required dependencies
    ```
