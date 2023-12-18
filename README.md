@@ -1,5 +1,5 @@
-# Django-auth
-# E-commerce Project Readme
+
+# E-commerce Project 
 
 ## Overview
 This project is an e-commerce platform that is currently under construction XD. It is built using Python Django and includes functionalities such as add to cart, remove from cart, authentication, sign in, sign up, and many more. The project is continuously being upgraded to enhance its features and performance.
