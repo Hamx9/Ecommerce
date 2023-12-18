@@ -7,7 +7,7 @@ This project is an e-commerce platform that is currently under construction XD. 
 ## Installation
 1. Clone the repository
    ```
-   git clone https://github.com/hammadu696/Django-auth.git
+   git clone https://github.com/hammadu696/Ecommerce.git
    ```
 2. Install the required dependencies
    ```
