@@ -5,7 +5,10 @@ from django.views.generic import ListView, DetailView,View
 from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.mixins import LoginRequiredMixin 
-# Create your views here.
+from .form import CheckOut
+#
+
+#  Create your views here.
 # def item_list(request):
 #     context = {
 #         'items':Item.objects.all(),
@@ -19,7 +22,7 @@ class  HomeView (ListView):
     template_name = "home.html"
 
 
-
+ 
 #summery view
 class OrderSummeryView(LoginRequiredMixin,View):
    def get(self,*args, **kwargs):
@@ -34,6 +37,19 @@ class OrderSummeryView(LoginRequiredMixin,View):
             print("enter in except")
             messages.error(self.request,"you do not have active order")
             return redirect("/")
+
+class CheckoutView(View):
+    def get(self, *args, **kwargs):
+        form = CheckOut()
+        context={
+            'form' : form
+        } 
+        return render(self.request,'checkout.html', context)
+    def post(self, *args, **kwargs):
+        form = CheckOut(self.request.POST or None)
+        if form.is_valid():
+            print("the form is vlaid")
+            return redirect('core:checkout')
 
 
 
