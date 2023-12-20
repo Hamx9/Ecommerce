@@ -9,9 +9,10 @@ PAYMENT_CHOICES=(
 class CheckOut(forms.Form):
     street_adress = forms.CharField(widget=forms.TextInput(attrs={ 'class':'form-control'}))
     apartment_adress = forms.CharField(required=False,widget=forms.TextInput(attrs={ 'class':'form-control'}))
-    country = CountryField().formfield()
-    zip = forms.CharField()
-    same_billing_adress= forms.BooleanField(widget=forms.CheckboxInput())
+    #country = CountryField(blank_label="(select country)").formfield()
+    zip = forms.CharField(widget=forms.TextInput(attrs={ 'class':'form-control'}))
+    same_billing_adress= forms.BooleanField(widget=forms.CheckboxInput(),)
     save_info = forms.BooleanField(widget=forms.CheckboxInput())
+
     payment_option = forms.ChoiceField(widget=forms.RadioSelect(),choices=PAYMENT_CHOICES)
-    
+  

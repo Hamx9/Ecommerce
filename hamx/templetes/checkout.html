@@ -102,32 +102,33 @@
                   <!--Grid column-->
 
                   <!--Grid column-->
-                  <div class="col-lg-4 col-md-6 mb-4">
-                    <label for="state">State</label>
-                    <select
+                  <!-- <div class="col-lg-4 col-md-6 mb-4"> -->
+                    <!-- <label for="state">State</label> -->
+                    <!-- <select
                       class="custom-select d-block w-100"
                       id="state"
                       required
                     >
                       <option value="">Choose...</option>
                       <option>California</option>
-                    </select>
-                    <div class="invalid-feedback">
-                      Please provide a valid state.
-                    </div>
-                  </div>
+                    </select> -->
+                    <!-- <div class="invalid-feedback"> -->
+                      <!-- Please provide a valid state. -->
+                    <!-- </div> -->
+                  <!-- </div> -->
                   <!--Grid column-->
 
                   <!--Grid column-->
                   <div class="col-lg-4 col-md-6 mb-4">
                     <label for="zip">Zip</label>
-                    <input
+                    <!-- <input
                       type="text"
                       class="form-control"
                       id="zip"
                       placeholder=""
                       required
-                    />
+                    /> -->
+                    {{form.zip}}
                     <div class="invalid-feedback">Zip code required.</div>
                   </div>
                   <!--Grid column-->
@@ -137,11 +138,12 @@
                 <hr />
 
                 <div class="custom-control custom-checkbox">
-                  <input
+                  <!-- <input
                     type="checkbox"
                     class="custom-control-input"
                     id="same-address"
-                  />
+                  /> -->
+                  {{form.same_billing_adress}}
                   <label class="custom-control-label" for="same-address"
                     >Shipping address is the same as my billing address</label
                   >
