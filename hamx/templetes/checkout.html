@@ -34,6 +34,13 @@
           <div class="col-md-8 mb-4">
             <!--Card-->
             <div class="card">
+
+                <form >
+                  {% csrf_token %}
+                  {{form}}
+                </form>
+
+
               <!--Card content-->
               <form class="card-body">
                 <!--Grid row-->
@@ -51,23 +58,27 @@
 
                 <!--address-->
                 <div class="md-form mb-5">
-                  <input
+                  <!-- <input
                     type="text"
                     id="address"
                     class="form-control"
                     placeholder=""
-                  />
+                  /> -->
+                    {{form.street_adress}}
+
                   <label for="address" class="">Address</label>
                 </div>
 
                 <!--address-2-->
                 <div class="md-form mb-5">
-                  <input
+                  <!-- <input
                     type="text"
                     id="address-2"
                     class="form-control"
                     placeholder=""
-                  />
+                  /> -->
+                  {{form.apartment_adress}}
+
                   <label for="address-2" class="">Address 2 (optional)</label>
                 </div>
 
