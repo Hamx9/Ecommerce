@@ -48,6 +48,7 @@ class CheckoutView(View):
     def post(self, *args, **kwargs):
         form = CheckOut(self.request.POST or None)
         if form.is_valid():
+            print(form.cleaned_data)
             print("the form is vlaid")
             return redirect('core:checkout')
 

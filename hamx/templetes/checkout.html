@@ -35,15 +35,16 @@
             <!--Card-->
             <div class="card">
 
-                <form >
+                <!-- <form >
                   {% csrf_token %}
                   {{form}}
-                </form>
+                </form> -->
 
 
               <!--Card content-->
-              <form class="card-body">
+              <form class="card-body" method="post">
                 <!--Grid row-->
+                {% csrf_token %}
                 <div class="row">
                   <!--Grid column-->
                   <!--Grid column-->
@@ -162,9 +163,11 @@
                 <hr />
 
                 <div class="d-block my-3">
+                {% for value , name in form.fields.payment_option.choices %}
+
                   <div class="custom-control custom-radio">
                     <input
-                      id="credit"
+                      id="{{name}}"
                       name="paymentMethod"
                       type="radio"
                       class="custom-control-input"
@@ -172,33 +175,11 @@
                       required
                     />
                     <label class="custom-control-label" for="credit"
-                      >Credit card</label
+                      >{{name}}</label
                     >
                   </div>
-                  <div class="custom-control custom-radio">
-                    <input
-                      id="debit"
-                      name="paymentMethod"
-                      type="radio"
-                      class="custom-control-input"
-                      required
-                    />
-                    <label class="custom-control-label" for="debit"
-                      >Debit card</label
-                    >
-                  </div>
-                  <div class="custom-control custom-radio">
-                    <input
-                      id="paypal"
-                      name="paymentMethod"
-                      type="radio"
-                      class="custom-control-input"
-                      required
-                    />
-                    <label class="custom-control-label" for="paypal"
-                      >Paypal</label
-                    >
-                  </div>
+                  {% endfor %}
+                  
                 </div>
                 
                 <hr class="mb-4" />
@@ -210,6 +191,9 @@
             <!--/.Card-->
           </div>
           <!--Grid column-->
+
+
+
 
           <!--Grid column-->
           <div class="col-md-4 mb-4">
