@@ -45,11 +45,17 @@ class CheckoutView(View):
             'form' : form
         } 
         return render(self.request,'checkout.html', context)
+    
     def post(self, *args, **kwargs):
-        form = CheckOut(self.request.POST or None)
+        form = CheckOut(self.request.POST)
+        print("enter in the post function")
         if form.is_valid():
             print(form.cleaned_data)
             print("the form is vlaid")
+            return redirect('core:checkout')
+        else:
+            print("not enter tin if")
+            print("Form errors:", form.errors)
             return redirect('core:checkout')
 
 

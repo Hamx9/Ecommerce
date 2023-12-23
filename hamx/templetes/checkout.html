@@ -14,7 +14,11 @@
       href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"
     />
     <!-- Bootstrap core CSS -->
-    <link type="text/css" href="/static/css/bootstrap.min.css" rel="stylesheet" />
+    <link
+      type="text/css"
+      href="/static/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <!-- Material Design Bootstrap -->
     <link type="text/css" href="/static/css/mdb.min.css" rel="stylesheet" />
     <!-- Your custom styles (optional) -->
@@ -34,127 +38,50 @@
           <div class="col-md-8 mb-4">
             <!--Card-->
             <div class="card">
-
-                <!-- <form >
-                  {% csrf_token %}
-                  {{form}}
-                </form> -->
+             
+            
 
 
-              <!--Card content-->
-              <form class="card-body" method="post">
+              <form class="card-body" method="POST">
                 <!--Grid row-->
                 {% csrf_token %}
-                <div class="row">
-                  <!--Grid column-->
-                  <!--Grid column-->
-                </div>
-                <!--Grid row-->
-
-                <!--Username-->
-                
-
-                <!--email-->
-                
-
+                {{ form.errors }}
+                <div class="row"></div>
                 <!--address-->
-                <div class="md-form mb-5">
-                  <!-- <input
-                    type="text"
-                    id="address"
-                    class="form-control"
-                    placeholder=""
-                  /> -->
-                    {{form.street_adress}}
-
-                  <label for="address" class="">Address</label>
-                </div>
+                <div class="md-form mb-5">{{form.street_adress}}</div>
 
                 <!--address-2-->
-                <div class="md-form mb-5">
-                  <!-- <input
-                    type="text"
-                    id="address-2"
-                    class="form-control"
-                    placeholder=""
-                  /> -->
-                  {{form.apartment_adress}}
-
-                  <label for="address-2" class="">Address 2 (optional)</label>
-                </div>
+                <div class="md-form mb-5">{{form.apartment_adress}}</div>
 
                 <!--Grid row-->
                 <div class="row">
                   <!--Grid column-->
                   <div class="col-lg-4 col-md-12 mb-4">
                     <label for="country">Country</label>
-                    <select
-                      class="custom-select d-block w-100"
-                      id="country"
-                      required
-                    >
-                      <option value="">Choose...</option>
-                      <option>United States</option>
-                    </select>
+                    {{form.country}}
                     <div class="invalid-feedback">
                       Please select a valid country.
                     </div>
                   </div>
                   <!--Grid column-->
 
-                  <!--Grid column-->
-                  <!-- <div class="col-lg-4 col-md-6 mb-4"> -->
-                    <!-- <label for="state">State</label> -->
-                    <!-- <select
-                      class="custom-select d-block w-100"
-                      id="state"
-                      required
-                    >
-                      <option value="">Choose...</option>
-                      <option>California</option>
-                    </select> -->
-                    <!-- <div class="invalid-feedback"> -->
-                      <!-- Please provide a valid state. -->
-                    <!-- </div> -->
-                  <!-- </div> -->
-                  <!--Grid column-->
-
-                  <!--Grid column-->
                   <div class="col-lg-4 col-md-6 mb-4">
                     <label for="zip">Zip</label>
-                    <!-- <input
-                      type="text"
-                      class="form-control"
-                      id="zip"
-                      placeholder=""
-                      required
-                    /> -->
-                    {{form.zip}}
+                    {{form.zip1}}
                     <div class="invalid-feedback">Zip code required.</div>
                   </div>
-                  <!--Grid column-->
                 </div>
-                <!--Grid row-->
 
                 <hr />
 
                 <div class="custom-control custom-checkbox">
-                  <!-- <input
-                    type="checkbox"
-                    class="custom-control-input"
-                    id="same-address"
-                  /> -->
                   {{form.same_billing_adress}}
                   <label class="custom-control-label" for="same-address"
                     >Shipping address is the same as my billing address</label
                   >
                 </div>
                 <div class="custom-control custom-checkbox">
-                  <input
-                    type="checkbox"
-                    class="custom-control-input"
-                    id="save-info"
-                  />
+                 {{form.save_info}}
                   <label class="custom-control-label" for="save-info"
                     >Save this information for next time</label
                   >
@@ -163,25 +90,24 @@
                 <hr />
 
                 <div class="d-block my-3">
-                {% for value , name in form.fields.payment_option.choices %}
+                  {% for value , name in form.fields.payment_option.choices %}
 
                   <div class="custom-control custom-radio">
                     <input
                       id="{{name}}"
-                      name="paymentMethod"
+                      name="payment_option"
                       type="radio"
                       class="custom-control-input"
-                      checked
-                      required
+                      value="{{ value }}"
+                      
                     />
                     <label class="custom-control-label" for="credit"
                       >{{name}}</label
                     >
                   </div>
                   {% endfor %}
-                  
                 </div>
-                
+
                 <hr class="mb-4" />
                 <button class="btn btn-primary btn-lg btn-block" type="submit">
                   Continue to checkout
@@ -191,9 +117,6 @@
             <!--/.Card-->
           </div>
           <!--Grid column-->
-
-
-
 
           <!--Grid column-->
           <div class="col-md-4 mb-4">
@@ -275,6 +198,5 @@
         <!--Grid row-->
       </div>
     </main>
-
   </body>
 </html>
